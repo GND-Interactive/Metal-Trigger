@@ -17,7 +17,10 @@ var damage= 1
 @onready var pivot: Node2D = $Pivot
 @onready var fire_cd: Timer = $FireCD
 @export var hp = 2
+@export var Revivecount = 0
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var revive: Area2D = $Revive
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -100,6 +103,25 @@ func lose():
 			all_dead  = false
 			break
 	if all_dead:
-		self.get_node("../../Camera2D/Losescreen").win()
 		
+		self.get_node("../../Camera2D/Losescreen").lose()
+
+
+		
+		
+
+
+func _on_revive_area_entered(area: Area2D) -> void:
+	if "b_color" in area:
+		check_revive.rpc()
+@rpc("call_local")
+func check_revive():
+	Revivecount += 1
+	print(Revivecount)
+	if Revivecount == 3:
+		hp = 5
+		playback.travel("Idle")
+		set_physics_process(true)
+		revive.monitoring = false
+	pass
 		

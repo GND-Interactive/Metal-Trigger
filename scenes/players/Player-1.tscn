@@ -1,10 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://bge5mughwodej"]
+[gd_scene load_steps=34 format=3 uid="uid://bge5mughwodej"]
 
 [ext_resource type="Script" uid="uid://cw06trdvijq7y" path="res://scripts/MovementPlayer.gd" id="1_qmum8"]
 [ext_resource type="SpriteFrames" uid="uid://biaj7jb0gmace" path="res://scenes/players/Player-1-Sprite-Frames.tres" id="2_jjjug"]
 [ext_resource type="PackedScene" uid="uid://bk1l3kpxw5qm7" path="res://scenes/input_sync.tscn" id="3_u1v1j"]
 [ext_resource type="Script" uid="uid://bk7em88k3untq" path="res://scripts/hitplayer.gd" id="4_yto0b"]
-[ext_resource type="AudioStream" uid="uid://yuncq2vjy3ns" path="res://assets/sounds/Laser Weapons - Free Library/heavy_blast_012.wav" id="5_dpsk5"]
+[ext_resource type="AudioStream" uid="uid://4nfwwaqxmugh" path="res://assets/sounds/Laser Weapons - Free Library/heavy_blast_012.wav" id="5_dpsk5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xit07"]
 radius = 1.28571
@@ -238,7 +238,7 @@ states/Roll/position = Vector2(602, -255)
 states/Walk/node = SubResource("AnimationNodeAnimation_sviv5")
 states/Walk/position = Vector2(500, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_delv0"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_8tlq2"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_qqfcm"), "Walk", "Death", SubResource("AnimationNodeStateMachineTransition_vnxbj"), "Idle", "Hit", SubResource("AnimationNodeStateMachineTransition_amv45"), "Walk", "Hit", SubResource("AnimationNodeStateMachineTransition_cpmc8"), "Walk", "Roll", SubResource("AnimationNodeStateMachineTransition_sexqa"), "Hit", "Idle", SubResource("AnimationNodeStateMachineTransition_gchrc"), "Roll", "Idle", SubResource("AnimationNodeStateMachineTransition_3u78i"), "Idle", "Roll", SubResource("AnimationNodeStateMachineTransition_8v1xs"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_xit07")]
-graph_offset = Vector2(-108, -57.7243)
+graph_offset = Vector2(-108, 156.58)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dpsk5"]
 radius = 49.0
@@ -248,6 +248,10 @@ height = 122.0
 properties/0/path = NodePath(".:hp")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wl8fh"]
+radius = 32.9706
+height = 100.033
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 motion_mode = 1
@@ -317,4 +321,15 @@ replication_config = SubResource("SceneReplicationConfig_yto0b")
 stream = ExtResource("5_dpsk5")
 volume_db = -50.0
 
+[node name="Revive" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Revive"]
+position = Vector2(-7, 81)
+rotation = 1.58013
+shape = SubResource("CapsuleShape2D_wl8fh")
+
 [connection signal="area_entered" from="Hitplayer" to="Hitplayer" method="_on_area_entered"]
+[connection signal="area_entered" from="Revive" to="." method="_on_revive_area_entered"]

@@ -1,5 +1,8 @@
 extends Control
-@onready var quit: Button = $CenterContainer/VBoxContainer/Quit
+
+
+@onready var quit: Button = $VBoxContainer/Quit
+
 func _ready() -> void:
 	quit.pressed.connect(func(): get_tree().quit())
 

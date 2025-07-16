@@ -22,6 +22,7 @@ func take_damage():
 	self.get_parent().hp -= 1
 
 	if self.get_parent().hp == 0:
+		self.get_parent().revive.monitoring = true
 		self.get_parent().set_physics_process(false)
 		self.get_parent().playback.travel("Death")
 		var timer = Timer.new()
