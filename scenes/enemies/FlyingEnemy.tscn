@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://r1mmjem1wdps"]
 
 [ext_resource type="Script" uid="uid://b7jqoomhsbqoj" path="res://scripts/flying_enemy.gd" id="1_g0ct1"]
-[ext_resource type="Texture2D" uid="uid://oq64f4fg5cdj" path="res://assets/enemies/Enemy 3/fly_0.png" id="1_wkeg8"]
-[ext_resource type="Texture2D" uid="uid://bhacra8q8m6ex" path="res://assets/enemies/Enemy 3/fly_1.png" id="2_g0ct1"]
-[ext_resource type="Texture2D" uid="uid://rcsi2ag4s32u" path="res://assets/enemies/Enemy 3/fly_2.png" id="3_cffy3"]
-[ext_resource type="Texture2D" uid="uid://t0f0rvj4mh3" path="res://assets/enemies/Enemy 3/fly_3.png" id="4_qnu1f"]
-[ext_resource type="Texture2D" uid="uid://diru3tgu6y7a3" path="res://assets/enemies/Enemy 3/fly_4.png" id="5_qlsb3"]
-[ext_resource type="Texture2D" uid="uid://kb2lc8ljsf5i" path="res://assets/enemies/Enemy 3/fly_5.png" id="6_wwh6p"]
+[ext_resource type="Texture2D" uid="uid://b0fds1cas0xb1" path="res://assets/enemies/Enemy 3/fly_0.png" id="1_wkeg8"]
+[ext_resource type="Texture2D" uid="uid://c1gu7kbl7100o" path="res://assets/enemies/Enemy 3/fly_1.png" id="2_g0ct1"]
+[ext_resource type="Texture2D" uid="uid://54cp465f50dq" path="res://assets/enemies/Enemy 3/fly_2.png" id="3_cffy3"]
+[ext_resource type="Texture2D" uid="uid://j062ohsebr3r" path="res://assets/enemies/Enemy 3/fly_3.png" id="4_qnu1f"]
+[ext_resource type="Texture2D" uid="uid://g5hpnkqaqtcs" path="res://assets/enemies/Enemy 3/fly_4.png" id="5_qlsb3"]
+[ext_resource type="Texture2D" uid="uid://b20n4vqlqndqk" path="res://assets/enemies/Enemy 3/fly_5.png" id="6_wwh6p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qnu1f"]
 
@@ -109,8 +109,8 @@ _data = {
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_g0ct1"]
 
 [node name="FlyingEnemy" type="Area2D"]
-collision_layer = 8
-collision_mask = 4
+collision_layer = 72
+collision_mask = 132
 script = ExtResource("1_g0ct1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
