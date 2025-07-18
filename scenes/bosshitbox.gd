@@ -1,6 +1,7 @@
 extends Area2D
 class_name hitbox
 @export var color = Color.WHITE
+@onready var death_sound: AudioStreamPlayer2D = $"../Death-Sound"
 
 
 func _on_area_entered(area: Area2D) -> void:
@@ -21,6 +22,7 @@ func take_damage():
 	self.get_parent().hp -=1
 	if self.get_parent().hp == 0:
 		self.get_parent().set_physics_process(false)
+		death_sound.play()
 		self.get_parent().animation_player.play("death")
 		var timer = Timer.new()
 		timer.wait_time = 2.0

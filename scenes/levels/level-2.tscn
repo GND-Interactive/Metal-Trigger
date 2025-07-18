@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8tg1dbd61vq7"]
+[gd_scene load_steps=14 format=3 uid="uid://b8tg1dbd61vq7"]
 
 [ext_resource type="Script" uid="uid://d4drco3pshk8t" path="res://scripts/level_2.gd" id="1_paeld"]
 [ext_resource type="Texture2D" uid="uid://c8novhkjnddnv" path="res://assets/background/back.png" id="2_ux8lk"]
 [ext_resource type="Texture2D" uid="uid://cjk3ptono37qa" path="res://assets/background/middle.png" id="3_ewown"]
 [ext_resource type="Texture2D" uid="uid://bm1rlrmwjetky" path="res://assets/background/foreground.png" id="4_b618b"]
+[ext_resource type="PackedScene" uid="uid://cihyurlbgkhxy" path="res://scenes/creditos.tscn" id="9_paeld"]
+[ext_resource type="AudioStream" uid="uid://sel0lmy6jg6b" path="res://assets/sounds/DavidKBD - Eternity Pack - 05 - Evil soul inside - oneshoot.ogg" id="11_dpcxv"]
 [ext_resource type="Script" uid="uid://dc1rf43vo6q8x" path="res://scripts/camera_movement.gd" id="14_op1nl"]
 [ext_resource type="PackedScene" uid="uid://bxh21c6qx4vuj" path="res://scenes/levels/WinScreen.tscn" id="15_djxgc"]
 [ext_resource type="PackedScene" uid="uid://bxoewdrac1lku" path="res://ui/Losescreen.tscn" id="16_umosm"]
@@ -205,38 +207,25 @@ position = Vector2(1455, 529)
 scale = Vector2(3, 25)
 shape = SubResource("RectangleShape2D_plvqx")
 
-[node name="Enemies" type="Node2D" parent="."]
-
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(2362, 471)
 
-[node name="Enemies_boss#Label" type="Label" parent="."]
-offset_left = -15.0
-offset_top = -58.0
-offset_right = 25.0
-offset_bottom = -35.0
-text = "Boss"
-
-[node name="WinScreen" parent="." instance=ExtResource("15_djxgc")]
-visible = false
-offset_left = 463.0
-offset_top = 337.0
-offset_right = 463.0
-offset_bottom = 337.0
-scale = Vector2(2.30576, 3.14308)
-
-[node name="Losescreen" parent="." instance=ExtResource("16_umosm")]
-visible = false
-offset_left = 469.0
-offset_top = 344.0
-offset_right = 469.0
-offset_bottom = 344.0
-scale = Vector2(1.40592, 2.67974)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Creditos" parent="CanvasLayer" instance=ExtResource("9_paeld")]
+
 [node name="HealthBarPlayer" parent="CanvasLayer" instance=ExtResource("18_wd2n4")]
+visible = false
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_dpcxv")
+volume_db = -32.0
+autoplay = true
+
+[node name="lobbytimer" type="Timer" parent="."]
+wait_time = 35.0
 
 [connection signal="timeout" from="Timer" to="borders" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="borders" method="_on_timer2_2_timeout"]
 [connection signal="body_entered" from="borders/Area2D" to="borders" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="lobbytimer" to="." method="_on_lobbytimer_timeout"]

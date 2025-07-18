@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://cihyurlbgkhxy"]
+
+[ext_resource type="Script" uid="uid://7s23hycfwo53" path="res://scripts/creditos.gd" id="1_spoww"]
+
+[sub_resource type="Animation" id="Animation_qn435"]
+resource_name = "creditos"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(356, 338), Vector2(356, -700)]
+}
+
+[sub_resource type="Animation" id="Animation_spoww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(595, 338)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6yhot"]
+_data = {
+&"RESET": SubResource("Animation_spoww"),
+&"creditos": SubResource("Animation_qn435")
+}
+
+[node name="Creditos" type="Node2D"]
+script = ExtResource("1_spoww")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 0.596078, 1)
+offset_left = 356.0
+offset_top = -700.0
+offset_right = 956.0
+offset_bottom = 154.0
+text = "METAL TRIGGER
+
+Game Development
+
+GND INTERACTIVE:
+
+Gonzalo Cartes
+Nicolás González
+Daniel Ávila
+
+Designers:
+
+Gonzalo Cartes
+Nicolás González
+Daniel Ávila
+
+Composers and Musicians:
+
+DavidKBD – Game Music – itch.io
+Nicolás González – SparkBoy Voice
+Daniel Ávila – FireGirl Voice
+bananplyte – Boss SFX – freesound.org
+Baltiyar13 – Level Completed SFX – freesound.org
+
+Special Thanks:
+
+RGS DEV – Player Models – itch.io
+ansimuz – Background – itch.io
+Kronovic – Boss Model – itch.io
+
+Final Thanks:
+
+To the people who helped us develop this game, and to everyone who downloaded it 😊
+
+
+
+
+
+
+THANK YOU  !!
+
+"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6yhot")
+}

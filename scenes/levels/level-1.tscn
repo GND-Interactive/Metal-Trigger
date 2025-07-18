@@ -219,30 +219,6 @@ texture = ExtResource("14_ql35f")
 [node name="Players" type="Node2D" parent="."]
 position = Vector2(-2, 2)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-process_mode = 3
-position = Vector2(680, 410)
-limit_left = 90
-script = ExtResource("3_wubvj")
-
-[node name="WinScreen" parent="Camera2D" instance=ExtResource("9_2ovie")]
-physics_interpolation_mode = 1
-visible = false
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
-scale = Vector2(2.30576, 3.14308)
-
-[node name="Losescreen" parent="Camera2D" instance=ExtResource("10_ht1ge")]
-process_mode = 3
-visible = false
-offset_left = -45.0
-offset_top = -74.0
-offset_right = -45.0
-offset_bottom = -74.0
-scale = Vector2(1.40592, 2.67974)
-
 [node name="Spawn" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="Spawn"]
@@ -305,6 +281,30 @@ offset_right = 25.0
 offset_bottom = -35.0
 text = "Boss"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+position = Vector2(680, 410)
+limit_left = 90
+script = ExtResource("3_wubvj")
+
+[node name="WinScreen" parent="Camera2D" instance=ExtResource("9_2ovie")]
+physics_interpolation_mode = 1
+visible = false
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+scale = Vector2(2.30576, 3.14308)
+
+[node name="Losescreen" parent="Camera2D" instance=ExtResource("10_ht1ge")]
+process_mode = 3
+visible = false
+offset_left = -45.0
+offset_top = -74.0
+offset_right = -45.0
+offset_bottom = -74.0
+scale = Vector2(1.40592, 2.67974)
+
 [node name="WinScreen" parent="." instance=ExtResource("9_2ovie")]
 visible = false
 offset_left = 463.0
@@ -316,6 +316,7 @@ scale = Vector2(2.30576, 3.14308)
 [node name="Losescreen" parent="." instance=ExtResource("10_ht1ge")]
 process_mode = 3
 visible = false
+visibility_layer = 2
 offset_left = 469.0
 offset_top = 344.0
 offset_right = 469.0
@@ -331,7 +332,6 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-mouse_filter = 0
 
 [node name="ScoreScene" parent="CanvasLayer" instance=ExtResource("19_ql35f")]
 visible = false

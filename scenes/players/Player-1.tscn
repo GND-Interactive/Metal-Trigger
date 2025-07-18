@@ -293,7 +293,7 @@ position = Vector2(0, 67)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
 scale = Vector2(0.12, 0.12)
 sprite_frames = ExtResource("2_jjjug")
-animation = &"Death"
+animation = &"Idle"
 frame = 1
 
 [node name="FireCD" type="Timer" parent="."]
@@ -333,6 +333,7 @@ shape = SubResource("CapsuleShape2D_wl8fh")
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_wl8fh")
+volume_db = -10.0
 
 [connection signal="area_entered" from="Hitplayer" to="Hitplayer" method="_on_area_entered"]
 [connection signal="area_entered" from="Revive" to="." method="_on_revive_area_entered"]

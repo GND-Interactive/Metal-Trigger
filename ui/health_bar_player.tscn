@@ -55,9 +55,9 @@ offset_right = 310.0
 offset_bottom = 60.0
 theme_override_styles/background = SubResource("StyleBoxFlat_rbb3k")
 theme_override_styles/fill = SubResource("StyleBoxTexture_rbb3k")
-max_value = 2.0
+max_value = 5.0
 step = 1.0
-value = 2.0
+value = 5.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="ProgressBar"]
@@ -81,9 +81,9 @@ offset_bottom = 60.0
 grow_horizontal = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_rbb3k")
 theme_override_styles/fill = SubResource("StyleBoxTexture_2st27")
-max_value = 2.0
+max_value = 5.0
 step = 1.0
-value = 2.0
+value = 5.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="ProgressBar2"]

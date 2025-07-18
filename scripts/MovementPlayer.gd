@@ -16,7 +16,7 @@ var damage= 1
 @onready var multiplayer_spawner: MultiplayerSpawner = $MultiplayerSpawner
 @onready var pivot: Node2D = $Pivot
 @onready var fire_cd: Timer = $FireCD
-@export var hp = 2
+@export var hp = 5
 @export var Revivecount = 0
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var revive: Area2D = $Revive
@@ -114,6 +114,7 @@ func lose():
 func _on_revive_area_entered(area: Area2D) -> void:
 	if "b_color" in area:
 		check_revive.rpc()
+
 @rpc("call_local")
 func check_revive():
 	Revivecount += 1

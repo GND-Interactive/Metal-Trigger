@@ -7,7 +7,8 @@ extends Node2D
 @onready var borders: Node2D = $borders
 @onready var enemies: Node2D = $Enemies
 @onready var health_bars: Control = $CanvasLayer/HealthBarPlayer
-
+@onready var music: AudioStreamPlayer2D = $music
+@onready var lobbytimer: Timer = $lobbytimer
 
 var player_scenes = [player_scene_1, player_scene_2]
 
@@ -26,31 +27,15 @@ func _ready() -> void:
 		players.add_child(player_inst)
 		player_inst.setup(player)
 		player_inst.global_position= spawn.get_child(i).global_position
-
+	music.play()
+	lobbytimer.start()
 
 ## Funcion Process
 ##
 ## Corroboramos vida de cada jugador para actualizar la informacion
 func _process(delta: float) -> void:
+	pass
 
-	var player_1_health = 0
-	var player_2_health = 0
-	var i = 0
-	for player in players.get_children():
-		if i == 0:
-			player_1_health = player.hp
-		elif i == 1:
-			player_2_health = player.hp
-		i += 1
-	health_bars.update_health_bars(player_1_health,player_2_health)
-
-
-func create_enemy_waves(amount: int, colores: Array[String], position: Vector2) -> void:
-	var wave = ENEMY_WAVE_1.instantiate()
-	enemies.add_child(wave)
-	# Posicionar la oleada
-	wave.position = position
-	
-	# Llama a los metodos de la oleada
-	wave.create_enemies(amount)
-	wave.set_wave_colors(colores)
+@rpc("any_peer", "call_local", "reliable")
+func _on_lobbytimer_timeout() -> void:
+	Lobby.go_to_menu()

@@ -18,9 +18,9 @@ static func get_role_name(role: Role) -> String:
 		Role.NONE:
 			return "None"
 		Role.ROLE_A:
-			return "Hombre Azul"
+			return "Spark Boy"
 		Role.ROLE_B:
-			return "Mujer Roja"
+			return "Flare Girl"
 	return "Unknown"
 
 

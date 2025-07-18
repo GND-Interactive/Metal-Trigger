@@ -11,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_vfmqn")
 
 [node name="Player1Score" type="Sprite2D" parent="."]
@@ -33,7 +34,7 @@ offset_bottom = 544.0
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
-text = "SparkBoy
+text = "Spark Boy
 "
 vertical_alignment = 1
 
@@ -58,7 +59,7 @@ offset_bottom = 543.0
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
-text = "FlareGril
+text = "Flare Girl
 "
 
 [node name="Label2" type="Label" parent="VBoxContainer2"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxoewdrac1lku"]
 
 [ext_resource type="Script" uid="uid://c5no8w8s7q55k" path="res://scripts/losescreen.gd" id="1_tkoly"]
-[ext_resource type="FontFile" uid="uid://bafiwycn8vvi8" path="res://assets/fonts/metalslug-font.ttf" id="2_40yym"]
+[ext_resource type="FontFile" uid="uid://cmi6201kug2db" path="res://assets/fonts/metalslug-font.ttf" id="2_40yym"]
 
 [node name="Losescreen" type="Control"]
 layout_mode = 3
@@ -30,6 +30,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.603922, 0.411765, 0.141176, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_40yym")
+theme_override_font_sizes/font_size = 32
 text = "You Lose"
 horizontal_alignment = 1
 
@@ -38,4 +39,5 @@ process_mode = 3
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.603922, 0.411765, 0.141176, 1)
 theme_override_colors/font_color = Color(0.847059, 0.596078, 0.254902, 1)
+theme_override_font_sizes/font_size = 32
 text = "Quit"

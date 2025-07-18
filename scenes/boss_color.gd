@@ -14,7 +14,7 @@ extends CharacterBody2D
 var target_position: Vector2 = Vector2.ZERO
 
 
-@export var hp := 1
+@export var hp := 10
 var mode := 0
 var direction := Vector2.ZERO
 var last_sent_position := Vector2.ZERO
@@ -162,5 +162,4 @@ func _on_state_timeout() -> void:
 	Debug.log("state cambio")
 	change_state()
 func win():
-	#self.get_node("../../Camera2D/WinScreen").win()
 	self.get_node("../../CanvasLayer/ScoreScene").show_score()
