@@ -1,23 +1,24 @@
-[gd_scene load_steps=21 format=3 uid="uid://bervrm08asanb"]
+[gd_scene load_steps=22 format=3 uid="uid://bervrm08asanb"]
 
 [ext_resource type="Script" uid="uid://cgxewe8sy2juq" path="res://scenes/main.gd" id="1_w8wmq"]
 [ext_resource type="Script" uid="uid://dc1rf43vo6q8x" path="res://scripts/camera_movement.gd" id="3_wubvj"]
 [ext_resource type="Script" uid="uid://boqevddxhy35r" path="res://scripts/borders.gd" id="4_ieimj"]
-[ext_resource type="Texture2D" uid="uid://bcint1pfhrl85" path="res://assets/background/middle.png" id="4_wejd8"]
-[ext_resource type="Texture2D" uid="uid://codxhb5oo3ftk" path="res://assets/background/foreground.png" id="4_wubvj"]
-[ext_resource type="FontFile" uid="uid://bafiwycn8vvi8" path="res://assets/fonts/metalslug-font.ttf" id="6_2ovie"]
-[ext_resource type="Texture2D" uid="uid://cik3mfnyy3420" path="res://assets/background/back.png" id="6_wejd8"]
-[ext_resource type="Texture2D" uid="uid://yhx6m27nk4m2" path="res://assets/ui/w_dark.png" id="7_jxooh"]
-[ext_resource type="Texture2D" uid="uid://ddumi41lf0wf3" path="res://assets/ui/a_key_dark.png" id="8_6gxdu"]
+[ext_resource type="Texture2D" uid="uid://cohkkec2e6qvn" path="res://assets/background/middle.png" id="4_wejd8"]
+[ext_resource type="Texture2D" uid="uid://dx7v6b0ahnrhm" path="res://assets/background/foreground.png" id="4_wubvj"]
+[ext_resource type="FontFile" uid="uid://cnn2af224ow1r" path="res://assets/fonts/metalslug-font.ttf" id="6_2ovie"]
+[ext_resource type="Texture2D" uid="uid://djjah8mqwgags" path="res://assets/background/back.png" id="6_wejd8"]
+[ext_resource type="Texture2D" uid="uid://b5qq1ywukvvrm" path="res://assets/ui/w_dark.png" id="7_jxooh"]
+[ext_resource type="Texture2D" uid="uid://c6eo1gqwtu8wa" path="res://assets/ui/a_key_dark.png" id="8_6gxdu"]
 [ext_resource type="PackedScene" uid="uid://bxh21c6qx4vuj" path="res://scenes/levels/WinScreen.tscn" id="9_2ovie"]
-[ext_resource type="Texture2D" uid="uid://d3ogtr5ettpbu" path="res://assets/ui/s_dark.png" id="9_ixq74"]
+[ext_resource type="Texture2D" uid="uid://djxupu24pggpb" path="res://assets/ui/s_dark.png" id="9_ixq74"]
 [ext_resource type="PackedScene" uid="uid://bxoewdrac1lku" path="res://ui/Losescreen.tscn" id="10_ht1ge"]
-[ext_resource type="Texture2D" uid="uid://btuin0n12iofj" path="res://assets/ui/d_dark.png" id="10_oh1hm"]
-[ext_resource type="Texture2D" uid="uid://cs2lskwm2agi0" path="res://assets/ui/arrow_up_dark.png" id="11_h3m2t"]
-[ext_resource type="Texture2D" uid="uid://6vth80v35ttn" path="res://assets/ui/arrow_left_dark.png" id="12_plvqx"]
-[ext_resource type="Texture2D" uid="uid://omigl7bau6jp" path="res://assets/ui/arrow_right_dark.png" id="13_kwl1m"]
-[ext_resource type="Texture2D" uid="uid://dlwevqeyx6eo5" path="res://assets/ui/arrow_down_dark.png" id="14_ql35f"]
+[ext_resource type="Texture2D" uid="uid://dhobvawbinn3p" path="res://assets/ui/d_dark.png" id="10_oh1hm"]
+[ext_resource type="Texture2D" uid="uid://dys0j1po4wrxj" path="res://assets/ui/arrow_up_dark.png" id="11_h3m2t"]
+[ext_resource type="Texture2D" uid="uid://bw01tnofiqle5" path="res://assets/ui/arrow_left_dark.png" id="12_plvqx"]
+[ext_resource type="Texture2D" uid="uid://ckqb3jrto18d0" path="res://assets/ui/arrow_right_dark.png" id="13_kwl1m"]
+[ext_resource type="Texture2D" uid="uid://jb34hhrt23ih" path="res://assets/ui/arrow_down_dark.png" id="14_ql35f"]
 [ext_resource type="PackedScene" uid="uid://vjgqvhmm7vnw" path="res://ui/health_bar_player.tscn" id="18_plvqx"]
+[ext_resource type="AudioStream" uid="uid://b16ae2x3rbtrm" path="res://assets/sounds/DavidKBD - Eternity Pack - 01 - The desolation of a civilization - loop (1).ogg" id="19_kwl1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urp3g"]
 
@@ -226,9 +227,14 @@ script = ExtResource("3_wubvj")
 [node name="WinScreen" parent="Camera2D" instance=ExtResource("9_2ovie")]
 physics_interpolation_mode = 1
 visible = false
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
 scale = Vector2(2.30576, 3.14308)
 
 [node name="Losescreen" parent="Camera2D" instance=ExtResource("10_ht1ge")]
+process_mode = 3
 visible = false
 offset_left = -45.0
 offset_top = -74.0
@@ -307,6 +313,7 @@ offset_bottom = 337.0
 scale = Vector2(2.30576, 3.14308)
 
 [node name="Losescreen" parent="." instance=ExtResource("10_ht1ge")]
+process_mode = 3
 visible = false
 offset_left = 469.0
 offset_top = 344.0
@@ -317,6 +324,17 @@ scale = Vector2(1.40592, 2.67974)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBarPlayer" parent="CanvasLayer" instance=ExtResource("18_plvqx")]
+light_mask = 2
+visibility_layer = 2
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+mouse_filter = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_kwl1m")
+volume_db = -32.686
 
 [connection signal="timeout" from="Timer" to="borders" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="borders" method="_on_timer2_2_timeout"]
