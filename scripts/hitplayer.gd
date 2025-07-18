@@ -1,6 +1,10 @@
 extends Area2D
 
 @onready var invulnerability: Timer = $Invulnerability
+@onready var animation_tree: AnimationTree = $"../AnimationTree"
+@onready var playback = animation_tree["parameters/playback"]
+@onready var hit: AudioStreamPlayer2D = $"../Hit"
+
 var can_take_damage := true
 
 func _ready():
@@ -8,15 +12,15 @@ func _ready():
 
 func _on_area_entered(area: Area2D) -> void:
 	if can_take_damage:
+		hit.play()
 		take_damage.rpc()
 
-	
-	
+
 @rpc("call_local")
 func take_damage():
 	if not can_take_damage:
 		return
-
+	
 	can_take_damage = false  
 
 	self.get_parent().hp -= 1
@@ -38,5 +42,6 @@ func take_damage():
 
 func _on_timer_timeout():
 	self.get_parent().lose()
+
 func _on_Invulnerability_timeout():
 	can_take_damage = true

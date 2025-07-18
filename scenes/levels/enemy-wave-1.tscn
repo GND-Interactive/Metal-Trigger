@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccbingdyfkely"]
+[gd_scene load_steps=11 format=3 uid="uid://ccbingdyfkely"]
 
 [ext_resource type="Script" uid="uid://b267jasqw2xdb" path="res://scripts/levels/level-1/enemy_wave_1.gd" id="1_4kdf1"]
 [ext_resource type="Shader" uid="uid://d3km271558wp0" path="res://ui/font.gdshader" id="1_acble"]
 [ext_resource type="PackedScene" uid="uid://r1mmjem1wdps" path="res://scenes/enemies/FlyingEnemy.tscn" id="2_4kdf1"]
 [ext_resource type="Script" uid="uid://c6hhnlestccak" path="res://scripts/flip_enemies.gd" id="2_pge05"]
+[ext_resource type="AudioStream" uid="uid://dmf15tu0uypbm" path="res://assets/sounds/enemy-hurt.wav" id="5_0x60l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0x60l"]
 shader = ExtResource("1_acble")
@@ -62,7 +63,7 @@ z_as_relative = false
 curve = SubResource("Curve2D_4kdf1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(1273, 0)
+position = Vector2(1273, -1.21054e-06)
 progress = 4672.03
 rotates = false
 script = ExtResource("2_pge05")
@@ -75,3 +76,7 @@ script = ExtResource("2_pge05")
 libraries = {
 &"": SubResource("AnimationLibrary_0x60l")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0x60l")
+volume_db = -10.0

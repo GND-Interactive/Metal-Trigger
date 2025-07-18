@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://bge5mughwodej"]
+[gd_scene load_steps=36 format=3 uid="uid://bge5mughwodej"]
 
 [ext_resource type="Script" uid="uid://cw06trdvijq7y" path="res://scripts/MovementPlayer.gd" id="1_qmum8"]
 [ext_resource type="SpriteFrames" uid="uid://biaj7jb0gmace" path="res://scenes/players/Player-1-Sprite-Frames.tres" id="2_jjjug"]
 [ext_resource type="PackedScene" uid="uid://bk1l3kpxw5qm7" path="res://scenes/input_sync.tscn" id="3_u1v1j"]
 [ext_resource type="Script" uid="uid://bk7em88k3untq" path="res://scripts/hitplayer.gd" id="4_yto0b"]
-[ext_resource type="AudioStream" uid="uid://bwnk0hfn0ydw5" path="res://assets/sounds/Laser Weapons - Free Library/light_blast_2.wav" id="5_dpsk5"]
+[ext_resource type="AudioStream" uid="uid://bhf3u7hmqapq6" path="res://assets/sounds/Laser Weapons - Free Library/light_blast_2.wav" id="5_dpsk5"]
+[ext_resource type="AudioStream" uid="uid://bmsa821r1yu1l" path="res://assets/sounds/hurt-male.wav" id="6_wl8fh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xit07"]
 radius = 1.28571
@@ -41,7 +42,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_4a2aw"]
 resource_name = "Hit"
 length = 0.3
-loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -213,8 +213,6 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gchrc"]
 break_loop_at_end = true
-switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3u78i"]
 break_loop_at_end = true
@@ -225,20 +223,22 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xit07"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dpsk5"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_wtooe"]
 states/Death/node = SubResource("AnimationNodeAnimation_dylxg")
 states/Death/position = Vector2(408, 292)
 states/End/position = Vector2(1048, 100)
 states/Hit/node = SubResource("AnimationNodeAnimation_ir27h")
-states/Hit/position = Vector2(195, -255)
+states/Hit/position = Vector2(200, -250)
 states/Idle/node = SubResource("AnimationNodeAnimation_56s5d")
 states/Idle/position = Vector2(341, 100)
 states/Roll/node = SubResource("AnimationNodeAnimation_rkt3e")
 states/Roll/position = Vector2(602, -255)
 states/Walk/node = SubResource("AnimationNodeAnimation_sviv5")
 states/Walk/position = Vector2(500, 100)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_delv0"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_8tlq2"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_qqfcm"), "Walk", "Death", SubResource("AnimationNodeStateMachineTransition_vnxbj"), "Idle", "Hit", SubResource("AnimationNodeStateMachineTransition_amv45"), "Walk", "Hit", SubResource("AnimationNodeStateMachineTransition_cpmc8"), "Walk", "Roll", SubResource("AnimationNodeStateMachineTransition_sexqa"), "Hit", "Idle", SubResource("AnimationNodeStateMachineTransition_gchrc"), "Roll", "Idle", SubResource("AnimationNodeStateMachineTransition_3u78i"), "Idle", "Roll", SubResource("AnimationNodeStateMachineTransition_8v1xs"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_xit07")]
-graph_offset = Vector2(-108, 156.58)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_delv0"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_8tlq2"), "Idle", "Death", SubResource("AnimationNodeStateMachineTransition_qqfcm"), "Walk", "Death", SubResource("AnimationNodeStateMachineTransition_vnxbj"), "Idle", "Hit", SubResource("AnimationNodeStateMachineTransition_amv45"), "Walk", "Hit", SubResource("AnimationNodeStateMachineTransition_cpmc8"), "Walk", "Roll", SubResource("AnimationNodeStateMachineTransition_sexqa"), "Hit", "Idle", SubResource("AnimationNodeStateMachineTransition_gchrc"), "Roll", "Idle", SubResource("AnimationNodeStateMachineTransition_3u78i"), "Idle", "Roll", SubResource("AnimationNodeStateMachineTransition_8v1xs"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_xit07"), "Hit", "Walk", SubResource("AnimationNodeStateMachineTransition_dpsk5")]
+graph_offset = Vector2(-55.2661, -285.168)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dpsk5"]
 radius = 49.0
@@ -293,7 +293,7 @@ position = Vector2(0, 67)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
 scale = Vector2(0.12, 0.12)
 sprite_frames = ExtResource("2_jjjug")
-animation = &"Idle"
+animation = &"Death"
 frame = 1
 
 [node name="FireCD" type="Timer" parent="."]
@@ -330,6 +330,9 @@ monitoring = false
 position = Vector2(-7, 81)
 rotation = 1.58013
 shape = SubResource("CapsuleShape2D_wl8fh")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_wl8fh")
 
 [connection signal="area_entered" from="Hitplayer" to="Hitplayer" method="_on_area_entered"]
 [connection signal="area_entered" from="Revive" to="." method="_on_revive_area_entered"]

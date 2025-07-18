@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://ckxlp8rdfeeaf"]
+[gd_scene load_steps=32 format=3 uid="uid://ckxlp8rdfeeaf"]
 
 [ext_resource type="SpriteFrames" uid="uid://ctr1m864nio17" path="res://scenes/players/Player-2-Sprite-Frames.tres" id="1_kiej1"]
 [ext_resource type="Script" uid="uid://cw06trdvijq7y" path="res://scripts/MovementPlayer.gd" id="1_lr4pb"]
 [ext_resource type="PackedScene" uid="uid://bk1l3kpxw5qm7" path="res://scenes/input_sync.tscn" id="3_70nme"]
 [ext_resource type="Script" uid="uid://bk7em88k3untq" path="res://scripts/hitplayer.gd" id="4_gwvwa"]
-[ext_resource type="AudioStream" uid="uid://bwnk0hfn0ydw5" path="res://assets/sounds/Laser Weapons - Free Library/light_blast_2.wav" id="5_i2e6a"]
+[ext_resource type="AudioStream" uid="uid://bhf3u7hmqapq6" path="res://assets/sounds/Laser Weapons - Free Library/light_blast_2.wav" id="5_i2e6a"]
+[ext_resource type="AudioStream" uid="uid://bmsa821r1yu1l" path="res://assets/sounds/hurt-male.wav" id="6_d1e32"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kiej1"]
 radius = 0.885714
@@ -331,5 +332,9 @@ monitoring = false
 position = Vector2(-7, 81)
 rotation = 1.58013
 shape = SubResource("CapsuleShape2D_d1e32")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_d1e32")
+pitch_scale = 1.5
 
 [connection signal="area_entered" from="Hitplayer" to="Hitplayer" method="_on_area_entered"]

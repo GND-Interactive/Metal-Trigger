@@ -4,6 +4,7 @@ class_name Enemy
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var enemy_hurt_sound: AudioStreamPlayer2D
 
 ## Vida del enemigo son 2 disparos
 var hp : int = 2
@@ -21,7 +22,9 @@ var debilidades = {
 func _ready() -> void:
 	print("Debilidad del enemigo: ", debilidad)
 	animation_player.play("Fly")
-
+	if self.get_node("../../../../AudioStreamPlayer2D") != null :
+		enemy_hurt_sound = self.get_node("../../../../AudioStreamPlayer2D")
+	
 ## Método para setear el color usando un string
 ## Los colores disponibles son "red", "blue" y "purple"
 ## Si no se especifica el color, se pinta de color "purple"
@@ -36,14 +39,14 @@ func set_color(color_name: String = "purple") -> void:
 ## Funcion que maneja las colisiones con las balas
 func _on_area_entered(bullet: Area2D) -> void:
 	if bullet is Bullet && (bullet.b_color == debilidad || debilidad == Color(1,0,1)):
+		enemy_hurt_sound.play()
 		if hp == 1 :
 			bullet.borrar.rpc()
 			dead.rpc()
 		else:
 			hp -= 1
 			bullet.borrar.rpc() # Se elimina igual la bala para no tener penetracion de enemigos
-	if bullet.has_method("take_damage"):
-		bullet.take_damage.rpc()
+
 
 @rpc("call_local")
 func dead():
