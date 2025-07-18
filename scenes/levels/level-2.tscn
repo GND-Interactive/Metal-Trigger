@@ -1,0 +1,242 @@
+[gd_scene load_steps=12 format=3 uid="uid://b8tg1dbd61vq7"]
+
+[ext_resource type="Script" uid="uid://cgxewe8sy2juq" path="res://scenes/main.gd" id="1_3mlnm"]
+[ext_resource type="Texture2D" uid="uid://c8novhkjnddnv" path="res://assets/background/back.png" id="2_ux8lk"]
+[ext_resource type="Texture2D" uid="uid://cjk3ptono37qa" path="res://assets/background/middle.png" id="3_ewown"]
+[ext_resource type="Texture2D" uid="uid://bm1rlrmwjetky" path="res://assets/background/foreground.png" id="4_b618b"]
+[ext_resource type="Script" uid="uid://dc1rf43vo6q8x" path="res://scripts/camera_movement.gd" id="14_op1nl"]
+[ext_resource type="PackedScene" uid="uid://bxh21c6qx4vuj" path="res://scenes/levels/WinScreen.tscn" id="15_djxgc"]
+[ext_resource type="PackedScene" uid="uid://bxoewdrac1lku" path="res://ui/Losescreen.tscn" id="16_umosm"]
+[ext_resource type="Script" uid="uid://boqevddxhy35r" path="res://scripts/borders.gd" id="17_r0evb"]
+[ext_resource type="PackedScene" uid="uid://vjgqvhmm7vnw" path="res://ui/health_bar_player.tscn" id="18_wd2n4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urp3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plvqx"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_3mlnm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(37, 49)
+transform = Transform2D(1, 0, 0, 1, 37, 49)
+
+[node name="Back" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1344, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Back"]
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/Back"]
+position = Vector2(112, 0)
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/Back"]
+position = Vector2(224, 0)
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/Back"]
+position = Vector2(336, 0)
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/Back"]
+position = Vector2(448, 0)
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/Back"]
+position = Vector2(560, 0)
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/Back"]
+position = Vector2(672, 0)
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Sprite2D8" type="Sprite2D" parent="ParallaxBackground/Back"]
+position = Vector2(784, 0)
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Sprite2D9" type="Sprite2D" parent="ParallaxBackground/Back"]
+position = Vector2(896, 0)
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Sprite2D10" type="Sprite2D" parent="ParallaxBackground/Back"]
+position = Vector2(1008, 0)
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Sprite2D11" type="Sprite2D" parent="ParallaxBackground/Back"]
+position = Vector2(1120, 0)
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Sprite2D12" type="Sprite2D" parent="ParallaxBackground/Back"]
+position = Vector2(1232, 0)
+texture = ExtResource("2_ux8lk")
+centered = false
+
+[node name="Middle" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 11)
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Middle"]
+texture = ExtResource("3_ewown")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/Middle"]
+position = Vector2(256, 0)
+texture = ExtResource("3_ewown")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/Middle"]
+position = Vector2(512, 0)
+texture = ExtResource("3_ewown")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/Middle"]
+position = Vector2(768, 0)
+texture = ExtResource("3_ewown")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/Middle"]
+position = Vector2(1024, 0)
+texture = ExtResource("3_ewown")
+centered = false
+
+[node name="Front" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 24)
+motion_mirroring = Vector2(1376, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Front"]
+texture = ExtResource("4_b618b")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/Front"]
+position = Vector2(688, 0)
+texture = ExtResource("4_b618b")
+centered = false
+
+[node name="Players" type="Node2D" parent="."]
+position = Vector2(-2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+position = Vector2(680, 410)
+limit_left = 90
+script = ExtResource("14_op1nl")
+
+[node name="WinScreen" parent="Camera2D" instance=ExtResource("15_djxgc")]
+physics_interpolation_mode = 1
+visible = false
+scale = Vector2(2.30576, 3.14308)
+
+[node name="Losescreen" parent="Camera2D" instance=ExtResource("16_umosm")]
+visible = false
+offset_left = -45.0
+offset_top = -74.0
+offset_right = -45.0
+offset_bottom = -74.0
+scale = Vector2(1.40592, 2.67974)
+
+[node name="Spawn" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Spawn"]
+position = Vector2(229, 352)
+gizmo_extents = 127.1
+
+[node name="Marker2D2" type="Marker2D" parent="Spawn"]
+position = Vector2(361, 581)
+gizmo_extents = 127.1
+
+[node name="borders" type="Node2D" parent="."]
+script = ExtResource("17_r0evb")
+
+[node name="upper-limit" type="StaticBody2D" parent="borders"]
+position = Vector2(0, 167)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/upper-limit"]
+scale = Vector2(1000, 10)
+shape = SubResource("RectangleShape2D_urp3g")
+
+[node name="floor-limit" type="StaticBody2D" parent="borders"]
+position = Vector2(0, 890)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/floor-limit"]
+scale = Vector2(1000, 10)
+shape = SubResource("RectangleShape2D_urp3g")
+
+[node name="left-limit" type="StaticBody2D" parent="borders"]
+position = Vector2(-35, 0)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/left-limit"]
+scale = Vector2(1000, 10)
+shape = SubResource("RectangleShape2D_urp3g")
+
+[node name="right-limit" type="StaticBody2D" parent="borders"]
+position = Vector2(2404, 0)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/right-limit"]
+scale = Vector2(1000, 10)
+shape = SubResource("RectangleShape2D_urp3g")
+
+[node name="Area2D" type="Area2D" parent="borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/Area2D"]
+position = Vector2(1455, 529)
+scale = Vector2(3, 25)
+shape = SubResource("RectangleShape2D_plvqx")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(2362, 471)
+
+[node name="Enemies_boss#Label" type="Label" parent="."]
+offset_left = -15.0
+offset_top = -58.0
+offset_right = 25.0
+offset_bottom = -35.0
+text = "Boss"
+
+[node name="WinScreen" parent="." instance=ExtResource("15_djxgc")]
+visible = false
+offset_left = 463.0
+offset_top = 337.0
+offset_right = 463.0
+offset_bottom = 337.0
+scale = Vector2(2.30576, 3.14308)
+
+[node name="Losescreen" parent="." instance=ExtResource("16_umosm")]
+visible = false
+offset_left = 469.0
+offset_top = 344.0
+offset_right = 469.0
+offset_bottom = 344.0
+scale = Vector2(1.40592, 2.67974)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBarPlayer" parent="CanvasLayer" instance=ExtResource("18_wd2n4")]
+
+[connection signal="timeout" from="Timer" to="borders" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="borders" method="_on_timer2_2_timeout"]
+[connection signal="body_entered" from="borders/Area2D" to="borders" method="_on_area_2d_body_entered"]

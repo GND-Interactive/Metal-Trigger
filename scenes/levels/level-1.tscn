@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ckqb3jrto18d0" path="res://assets/ui/arrow_right_dark.png" id="13_kwl1m"]
 [ext_resource type="Texture2D" uid="uid://jb34hhrt23ih" path="res://assets/ui/arrow_down_dark.png" id="14_ql35f"]
 [ext_resource type="PackedScene" uid="uid://vjgqvhmm7vnw" path="res://ui/health_bar_player.tscn" id="18_plvqx"]
+[ext_resource type="PackedScene" uid="uid://bo7sy6xmalbma" path="res://ui/ScoreScene.tscn" id="19_kwl1m"]
 [ext_resource type="AudioStream" uid="uid://b16ae2x3rbtrm" path="res://assets/sounds/DavidKBD - Eternity Pack - 01 - The desolation of a civilization - loop (1).ogg" id="19_kwl1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urp3g"]
@@ -335,6 +336,9 @@ mouse_filter = 0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_kwl1m")
 volume_db = -32.686
+
+[node name="ScoreScene" parent="CanvasLayer" instance=ExtResource("19_kwl1m")]
+visible = false
 
 [connection signal="timeout" from="Timer" to="borders" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="borders" method="_on_timer2_2_timeout"]
