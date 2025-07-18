@@ -162,4 +162,5 @@ func _on_state_timeout() -> void:
 	Debug.log("state cambio")
 	change_state()
 func win():
-	self.get_node("../../Camera2D/WinScreen").win()
+	#self.get_node("../../Camera2D/WinScreen").win()
+	self.get_node("../../CanvasLayer/ScoreScene").show_score()
