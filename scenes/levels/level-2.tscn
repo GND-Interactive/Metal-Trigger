@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b8tg1dbd61vq7"]
 
-[ext_resource type="Script" uid="uid://cgxewe8sy2juq" path="res://scenes/main.gd" id="1_3mlnm"]
+[ext_resource type="Script" uid="uid://d4drco3pshk8t" path="res://scripts/level_2.gd" id="1_paeld"]
 [ext_resource type="Texture2D" uid="uid://c8novhkjnddnv" path="res://assets/background/back.png" id="2_ux8lk"]
 [ext_resource type="Texture2D" uid="uid://cjk3ptono37qa" path="res://assets/background/middle.png" id="3_ewown"]
 [ext_resource type="Texture2D" uid="uid://bm1rlrmwjetky" path="res://assets/background/foreground.png" id="4_b618b"]
@@ -15,7 +15,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plvqx"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_3mlnm")
+script = ExtResource("1_paeld")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0
