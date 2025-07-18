@@ -7,6 +7,7 @@ extends Node2D
 @onready var borders: Node2D = $borders
 @onready var enemies: Node2D = $Enemies
 @onready var health_bars: Control = $CanvasLayer/HealthBarPlayer
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var player_scenes = [player_scene_1, player_scene_2]
 
@@ -25,7 +26,7 @@ func _ready() -> void:
 		players.add_child(player_inst)
 		player_inst.setup(player)
 		player_inst.global_position= spawn.get_child(i).global_position
-	
+	audio_stream_player_2d.play(3.0	)
 
 ## Funcion Process
 ##
